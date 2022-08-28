@@ -3,7 +3,9 @@
   "devDependencies": {
     "@metamask/providers": "^9.1.0",
     "@nomicfoundation/hardhat-toolbox": "^1.0.2",
-    "hardhat": "^2.10.2"
+    "@typechain/ethers-v5": "^10.1.0",
+    "hardhat": "^2.10.2",
+    "typechain": "^8.1.0"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.7.3"
