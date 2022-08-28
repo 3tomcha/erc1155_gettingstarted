@@ -3,7 +3,9 @@ import Top from './components/Top.vue'
 </script>
 
 <template>
-  <Top/>
+  <suspense>
+    <Top/>
+  </suspense>
 </template>
 
 <style scoped>
