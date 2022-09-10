@@ -22,9 +22,11 @@ const getName = async() => {
 	console.log(GOLD);
 }
 const getUri = async() => {
-	const provider = new ethers.providers.AlchemyProvider("goerli")
-	const gameItemsContract: GameItems = await new ethers.Contract(contractAddress, gameitemsabi, provider)  as GameItems;
+	const provider = new ethers.providers.Web3Provider(window.ethereum)
+	const signer = await provider.getSigner();
+	const gameItemsContract: GameItems = await new ethers.Contract(contractAddress, gameitemsabi, signer)  as GameItems;
 	const uri = await gameItemsContract.uri(2)
+	console.log(uri);
 }
 const getDeployerBalanceOf = async() => {
 	const provider = new ethers.providers.AlchemyProvider("goerli")

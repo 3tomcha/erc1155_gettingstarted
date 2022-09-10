@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import Top from './components/Top.vue'
+import MyPage from './components/MyPage.vue'
 </script>
 
 <template>
   <suspense>
     <Top/>
   </suspense>
+  <hr>
+    <MyPage/>
 </template>
 
 <style scoped>
