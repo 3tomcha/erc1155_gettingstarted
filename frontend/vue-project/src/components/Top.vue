@@ -60,6 +60,18 @@ const safeBatchTransferFrom = async () => {
 		console.error(err)
 	})
 }
+const balanceOfBatch = async () => {
+	const provider = new ethers.providers.Web3Provider(window.ethereum)
+	const signer = await provider.getSigner();
+	const gameItemsContract: GameItems = await new ethers.Contract(contractAddress, gameitemsabi, signer)  as GameItems;
+	const res = await gameItemsContract.balanceOfBatch([playerAddress, playerAddress, playerAddress, playerAddress, playerAddress], [0, 1, 2, 3, 4]).catch(err => {
+		console.error(err)
+	})
+	if (res) {
+		const result = res.map(bignumber => bignumber.toString())
+		console.log(result);
+	}
+}
 </script>
 
 <template>
@@ -69,4 +81,5 @@ const safeBatchTransferFrom = async () => {
 	<button @click="getDeployerBalanceOf">getDeployerBalanceOf</button>
 	<button @click="getBalanceOfBatch">getBalanceOfBatch</button>
 	<button @click="safeBatchTransferFrom">safeBatchTransferFrom</button>
+	<button @click="balanceOfBatch">balanceOfBatch</button>
 </template>
